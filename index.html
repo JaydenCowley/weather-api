@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+</head>
+
+<body class="container">
+    <div class="container grid">
+        <div>
+            <label for="country">Please country code</label>
+            <input type="text" id="country-name" placeholder="Country" name="country">
+            <label for="city-name">Please enter a city name</label>
+            <input type="text" id="city-name" placeholder="City Name" name="city">
+            <label for="state">Please enter a state</label>
+            <input type="text" id="state-name" placeholder="State" name="state">
+
+            <button id="city-submit">Submit</button>
+            <ul id="city-list">
+
+            </ul>
+        </div>
+        <div id="current-weather">
+            <h2 class="current-date"></h2>
+            <h3 id="current-temp">Temp: </h3>
+            <h3 id="current-wind">Wind: </h3>
+            <h3 id="current-humidity">Humidity:</h3>
+            <h3 id="current-uv">UV index:</h3>
+        </div>
+    </div>
+    <div id="5-day-forecast" class="grid">
+        <div id="day-1">
+            <h4 id="day-1-date">01/21/23</h4>
+            <div id="day-1-temp">temp:</div>
+            <div id="day-1-wind">Wind:</div>
+            <div id="day-1-humidity">Humidity:</div>
+        </div>
+        <div id="day-2">
+            <h4 id="day-2-date">01/21/23</h4> 
+            <div id="day-2-temp">temp:</div>
+            <div id="day-2-wind">Wind:</div>
+            <div id="day-2-humidity">Humidity:</div>
+        </div>
+        <div id="day-3">
+            <h4 id="day-3-date">01/21/23</h4> 
+            <div id="day-3-temp">temp:</div>
+            <div id="day-3-wind">Wind:</div>
+            <div id="day-3-humidity">Humidity:</div>
+        </div>
+        <div id="day-4">
+            <h4 id="day-4-date">01/21/23</h4> 
+            <div id="day-4-temp">temp:</div>
+            <div id="day-4-wind">Wind:</div>
+            <div id="day-4-humidity">Humidity:</div>
+        </div>
+        <div id="day-5">
+            <h4 id="day-5-date">01/21/23</h4> 
+            <div id="day-5-temp">temp:</div>
+            <div id="day-5-wind">Wind:</div>
+            <div id="day-5-humidity">Humidity:</div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/script.js"></script>
+
+</html>
