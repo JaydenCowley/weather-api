@@ -61,39 +61,22 @@ async function getWeatherApi() {
                     return response.json();
                 })
                 .then(function (data) {
-                    console.log(data)
+                    //console.log(DateTime.toString(data.current.dt));
                     //Adding collected data to the html
                     //Current
+                    //console.log(DateTime(data))
                     document.getElementById("current-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + "/" + CurrentYear);
                     document.getElementById("current-temp").textContent = ("Temp: " + data.current.temp + "ºF");
                     document.getElementById("current-wind").textContent = ("Wind Speed: " + data.current.wind_speed + "mph");
                     document.getElementById("current-humidity").textContent = ("Humidity: " + data.current.humidity + "%");
                     document.getElementById("current-uv").textContent = ("UV index: " + data.current.uvi);
-                    //Day 1
-                    document.getElementById("day-1-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + 1 + "/" + CurrentYear);
-                    document.getElementById("day-1-temp").textContent = ("Temp: " + data.daily[0].temp.day + "ºF");
-                    document.getElementById("day-1-wind").textContent = ("Wind Speed: " + data.daily[0].wind_speed + "mph");
-                    document.getElementById("day-1-humidity").textContent = ("Humidity: " + data.daily[0].humidity + "%");
-                    //Day 2
-                    document.getElementById("day-2-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + 2 + "/" + CurrentYear);
-                    document.getElementById("day-2-temp").textContent = ("Temp: " + data.daily[1].temp.day + "ºF");
-                    document.getElementById("day-2-wind").textContent = ("Wind Speed: " + data.daily[1].wind_speed + "mph");
-                    document.getElementById("day-2-humidity").textContent = ("Humidity: " + data.daily[1].humidity + "%");
-                    // Day 3
-                    document.getElementById("day-3-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + 3 + "/" + CurrentYear);
-                    document.getElementById("day-3-temp").textContent = ("Temp: " + data.daily[2].temp.day + "ºF");
-                    document.getElementById("day-3-wind").textContent = ("Wind Speed: " + data.daily[2].wind_speed + "mph");
-                    document.getElementById("day-3-humidity").textContent = ("Humidity: " + data.daily[2].humidity + "%");
-                    // Day 4
-                    document.getElementById("day-4-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + 4 + "/" + CurrentYear);
-                    document.getElementById("day-4-temp").textContent = ("Temp: " + data.daily[3].temp.day + "ºF");
-                    document.getElementById("day-4-wind").textContent = ("Wind Speed: " + data.daily[3].wind_speed + "mph");
-                    document.getElementById("day-4-humidity").textContent = ("Humidity: " + data.daily[3].humidity + "%");
-                    // Day 5
-                    document.getElementById("day-5-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + 5 + "/" + CurrentYear);
-                    document.getElementById("day-5-temp").textContent = ("Temp: " + data.daily[4].temp.day + "ºF");
-                    document.getElementById("day-5-wind").textContent = ("Wind Speed: " + data.daily[4].wind_speed + "mph");
-                    document.getElementById("day-5-humidity").textContent = ("Humidity: " + data.daily[4].humidity + "%");
+                    
+                    for (let i = 1; i < 6; i++) {
+                        document.getElementById("day-" + i + "-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + i + "/" + CurrentYear);
+                        document.getElementById("day-" + i + "-temp").textContent = ("Temp: " + data.daily[i - 1].temp.day + "ºF");
+                        document.getElementById("day-" + i + "-wind").textContent = ("Wind Speed: " + data.daily[i - 1].wind_speed + "mph");
+                        document.getElementById("day-" + i + "-humidity").textContent = ("Humidity: " + data.daily[i - 1].humidity + "%"); 
+                    } 
                 })
         });
 };
