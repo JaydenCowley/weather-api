@@ -32,7 +32,7 @@ console.log(DateTime.local().c.day);
 var CurrentDayOfMonth = DateTime.local().c.day;
 var CurrentMonth = DateTime.local().c.month;
 var CurrentYear = DateTime.local().c.year;
-console.log(CurrentMonth + "/" + CurrentDayOfMonth + "/" + CurrentYear) 
+console.log(CurrentMonth + "/" + CurrentDayOfMonth + "/" + CurrentYear)
 //Get all the information we need from the Api's()
 async function getWeatherApi() {
     var cityName = document.getElementById("city-name").value;
@@ -64,19 +64,32 @@ async function getWeatherApi() {
                     //console.log(DateTime.toString(data.current.dt));
                     //Adding collected data to the html
                     //Current
-                    //console.log(DateTime(data))
+                    //getDate(data.current.dt)
                     document.getElementById("current-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + "/" + CurrentYear);
                     document.getElementById("current-temp").textContent = ("Temp: " + data.current.temp + "ºF");
                     document.getElementById("current-wind").textContent = ("Wind Speed: " + data.current.wind_speed + "mph");
                     document.getElementById("current-humidity").textContent = ("Humidity: " + data.current.humidity + "%");
                     document.getElementById("current-uv").textContent = ("UV index: " + data.current.uvi);
-                    
+                    if (data.current.uvi > 0) {
+                        document.getElementById("current-uv").style.backgroundColor = "green";
+                    }
+                    else if (data.current.uvi > 3) {
+                        document.getElementById("current-uv").style.backgroundColor = "yellow";
+                    }
+                    else if (data.current.uvi > 5) {
+                        document.getElementById("current-uv").style.backgroundColor = "orange";
+                    }
+                    else if (data.current.uvi > 8) {
+                        document.getElementById("current-uv").style.backgroundColor = "red";
+                    };
+
+
                     for (let i = 1; i < 6; i++) {
                         document.getElementById("day-" + i + "-date").textContent = (CurrentMonth + "/" + CurrentDayOfMonth + i + "/" + CurrentYear);
                         document.getElementById("day-" + i + "-temp").textContent = ("Temp: " + data.daily[i - 1].temp.day + "ºF");
                         document.getElementById("day-" + i + "-wind").textContent = ("Wind Speed: " + data.daily[i - 1].wind_speed + "mph");
-                        document.getElementById("day-" + i + "-humidity").textContent = ("Humidity: " + data.daily[i - 1].humidity + "%"); 
-                    } 
+                        document.getElementById("day-" + i + "-humidity").textContent = ("Humidity: " + data.daily[i - 1].humidity + "%");
+                    }
                 })
         });
 };
