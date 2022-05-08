@@ -11,3 +11,4 @@
 - Make the search history more functional so when a search item is clicked it will autofill the form
 - add weather background pictures to each forecast instead of the icons 
 ## Sources
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/98612225/167278260-9326ddcd-855e-44fa-901f-c8af079b22e0.png">
