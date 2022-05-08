@@ -15,19 +15,22 @@
 //lat lon retrieval: http://api.openweathermap.org/geo/1.0/direct?q={city name}&limit=5&appid=dd5b88dda79c76158757fafce663aa41
 //defined variables
 const apiKey = "dd5b88dda79c76158757fafce663aa41";
-
+//search history
+var makeHistElem = function() {
+    var cityName = document.getElementById("city-name").value;
+    var stateName = document.getElementById("state-name").value;
+    document.getElementById("city-list").append(cityName + ", " + stateName, document.createElement("br"))
+    
+}
 // submit button function
 document.getElementById("city-submit").addEventListener("click", function () {
-    var cityName = document.getElementById("city-name").value;
-    var countryName = document.getElementById("country-name").value;
-    var stateName = document.getElementById("state-name").value;
-    //document.createElement("li").setAttribute("class", "list-item")
-    //document.getElementById("list-item") = cityName + ", " + stateName + ", " + countryName
-
+    // document.createElement("li").setAttribute("class", "list-item")
+    // var listItem = document.getElementById("list-item") = cityName + ", " + stateName + ", " + countryName
+    // document.getElementById("city-list").append(listItem)
     //document.getElementById("city-list").appendChild("li", cityName).setAttribute("class","city-list-item");
     //localStorage.setItem(cityName, "City Name");
     getWeatherApi();
-
+    makeHistElem();
 });
 var DateTime = luxon.DateTime;
 //console.log(DateTime);
